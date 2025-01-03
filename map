@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snow Day Calculator - 04530</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #weatherData, #prediction {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            width: 300px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Snow Day Calculator - 04530</h1>
+    <button id="calculateButton">Calculate Snow Day Chance</button>
+
+    <div id="weatherData">
+        <h2>Current Weather for 04530</h2>
+        <p>Temperature: <span id="temperature"></span></p>
+        <p>Conditions: <span id="conditions"></span></p>
+        <p>Snow (last 3 hours): <span id="snow"></span></p>
+    </div>
+
+    <div id="prediction">
+        <h2>Snow Day Prediction</h2>
+        <p id="predictionText">Click "Calculate" to see the prediction.</p>
+    </div>
+
+    <script>
+        const calculateButton = document.getElementById('calculateButton');
+        const temperatureDisplay = document.getElementById('temperature');
+        const conditionsDisplay = document.getElementById('conditions');
+        const snowDisplay = document.getElementById('snow');
+        const predictionText = document.getElementById('predictionText');
+
+        // **IMPORTANT: Your API Key Integrated Here**
+        const apiKey = '13775e967883e5baf5724020f7cf7c86';
+        const zipCode = '04530';
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=${apiKey}&units=imperial`;
+
+        calculateButton.addEventListener('click', () => {
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Weather Data:", data);
+                    displayWeatherData(data);
+                    const snowDayChance = calculateSnowDayChance(data);
+                    displayPrediction(snowDayChance);
+                })
+                .catch(error => {
+                    console.error("Error fetching weather data:", error);
+                    predictionText.textContent = "Error fetching weather data. Please try again later.";
+                });
+        });
+
+        function displayWeatherData(data) {
+            temperatureDisplay.textContent = `${data.main.temp}°F`;
+            conditionsDisplay.textContent = data.weather[0].description;
+            snowDisplay.textContent = data.snow ? `${data.snow['3h']} mm` : 'No snow data available';
+        }
+
+        function calculateSnowDayChance(weatherData) {
+            const temperature = weatherData.main.temp;
+            const conditions = weatherData.weather[0].main.toLowerCase();
+            const snowLast3Hours = weatherData.snow ? weatherData.snow['3h'] : 0;
+
+            // **Simple Algorithm - Customize this!**
+            let chance = 0;
+
+            if (temperature < 33) { // Below freezing
+                chance += 20;
+            }
+
+            if (conditions.includes('snow') || conditions.includes('ice')) {
+                chance += 30;
+            }
+
+            if (snowLast3Hours > 1) { // More than 1mm of snow in last 3 hours
+                chance += 50;
+            }
+
+            if (chance > 60) {
+                return "High chance of a snow day!";
+            } else if (chance > 30) {
+                return "Moderate chance of a snow day.";
+            } else {
+                return "Low chance of a snow day.";
+            }
+        }
+
+        function displayPrediction(prediction) {
+            predictionText.textContent = prediction;
+        }
+    </script>
+</body>
+</html>
