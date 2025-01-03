@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snow Day Calculator - 04530</title>
+    <title>Snow Day Calculator - RSU1</title>
     <style>
         body {
             font-family: sans-serif;
@@ -11,26 +11,66 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            background-color: #f0efe7; /* Main background color */
+        }
+
+        h1 {
+            color: #3d3929; /* Heading text color */
+            text-align: center;
+        }
+
+        h2 {
+            color: #3d3929; /* Heading text color */
+            text-align: center;
         }
 
         #weatherData, #prediction {
-            border: 1px solid #ccc;
-            padding: 15px;
+            background-color: white; /* White background for boxes */
+            border-radius: 10px; /* More rounded corners */
+            padding: 20px; /* Increased padding */
             margin-top: 20px;
-            border-radius: 5px;
             width: 300px;
-            text-align: center;
+            text-align: left; /* Left-aligned text */
+            color: #848276; /* Text color within boxes */
+            box-sizing: border-box; /* To include padding in width */
         }
 
         button {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+            margin-bottom: 20px; /* Add some space below the button */
+        }
+
+        #bottomSection {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        #bottomSection img {
+            height: 50px; /* Adjust as needed for "fairly small" */
+            margin-right: 10px;
+        }
+
+        #bottomSection p {
+            color: #3d3929; /* Match heading color */
+            font-style: italic;
+        }
+
+        #subheading {
+            font-size: 0.8em;
+            color: #3d3929;
+            text-align: center;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
-    <h1>Snow Day Calculator - 04530</h1>
+    <h1>Snow Day Calculator for RSU1</h1>
+    <p id="subheading">world's most accurate</p>
     <button id="calculateButton">Calculate Snow Day Chance</button>
 
     <div id="weatherData">
@@ -45,6 +85,11 @@
         <p id="predictionText">Click "Calculate" to see the prediction.</p>
     </div>
 
+    <div id="bottomSection">
+        <img src="https://www.pressherald.com/wp-content/uploads/sites/4/2011/04/m-bath-rsu1-superintendent-patrick-manuel.jpg" alt="Patrick Manuel">
+        <p>Please, Patrick! we need a break!</p>
+    </div>
+
     <script>
         const calculateButton = document.getElementById('calculateButton');
         const temperatureDisplay = document.getElementById('temperature');
@@ -52,7 +97,6 @@
         const snowDisplay = document.getElementById('snow');
         const predictionText = document.getElementById('predictionText');
 
-        // **IMPORTANT: Your API Key Integrated Here**
         const apiKey = '13775e967883e5baf5724020f7cf7c86';
         const zipCode = '04530';
         const apiUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=${apiKey}&units=imperial`;
