@@ -1,98 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - RSU1 Snow Day Calculator</title>
     <link rel="stylesheet" href="https://use.typekit.net/ptq8jqe.css">
     <style>
+        /* Reset and Box-Sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Crucial for consistent padding */
+        }
+
         body {
             background-color: #f0efe7;
             font-family: Arial, sans-serif;
             color: #98958e;
-            margin: 0;
-            padding: 0;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding: 1rem; /* Add some padding to the body for small screens */
         }
+
         .container {
+            width: 100%; /* Full width on small screens */
             max-width: 900px;
-            margin: 60px auto;
-            padding: 60px; /* Increased padding for more space */
+            margin: 2rem auto; /* Reduced margin for smaller screens */
+            padding: 2rem; /* Consistent padding */
             background-color: #ffffff;
-            border-radius: 20px; /* More rounded corners */
+            border-radius: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in-out; /* Smooth fade-in animation */
+            animation: fadeIn 1s ease-in-out;
         }
+
         h1 {
             font-family: "chivo", sans-serif;
             color: #3d3929;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 1.5rem; /* Using rem for scalable margin */
         }
+
         h2 {
             color: #3d3929;
-            margin-top: 40px;
+            margin-top: 2rem;
         }
+
         p {
             line-height: 1.8;
-            margin: 15px 0;
+            margin: 0.75rem 0; /* Using rem for scalable margin */
         }
+
         .accent {
             color: #da7c5d;
         }
+
         footer {
             text-align: center;
-            margin-top: 60px;
+            margin-top: 2rem;
             font-size: 0.9em;
         }
+
         /* Animation keyframes */
         @keyframes fadeIn {
             0% {
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
+        /* Media Query for Larger Screens */
+        @media (min-width: 768px) { /* Adjust breakpoint as needed */
+            .container {
+                padding: 4rem; /* Increase padding on larger screens */
+                margin: 4rem auto; /* Increase margin */
+            }
+            h1{
+                margin-bottom: 30px;
+            }
+            h2{
+                margin-top: 40px;
+            }
+            p{
+                margin: 15px 0;
+            }
+            footer{
+                margin-top: 60px;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>PRIVACY POLICY</h1>
-        <p>Effective Date: February 23, 2025</p>
-        
-        <h2>Introduction</h2>
-        <p>Welcome to the RSU1 Snow Day Calculator, developed by seniors at Morse High School who created this app to help predict the likelihood of a snow day for RSU1 schools. The app is available on the web, Android, and iOS platforms. This Privacy Policy applies to all versions of the app.</p>
-        <p>This Privacy Policy explains how we handle your data when you use our app. We take your privacy seriously and are committed to protecting your personal information.</p>
-        
-        <h2>Data Collection</h2>
-        <p>The RSU1 Snow Day Calculator does not collect, store, or transmit any personal data from its users. The app uses fixed geographical coordinates to fetch publicly available weather data from the National Weather Service API. All calculations to determine the probability of a snow day are performed locally on your device.</p>
-        
-        <h2>Data Usage</h2>
-        <p>The weather data retrieved from the National Weather Service API is used exclusively to calculate the probability of a snow day based on factors such as temperature, expected snowfall, and previous snowfall. This data is processed locally on your device and is not stored or shared with any third parties.</p>
-        
-        <h2>Third-Party Services</h2>
-        <p>The app utilizes the National Weather Service API to obtain weather forecasts. We do not share any user data with the National Weather Service or any other third-party services. The API requests include a User-Agent header to identify the app, but this does not involve any personal user information.</p>
-        
-        <h2>Local Storage</h2>
-        <p>The app stores certain preference locally on your device or in your browser. This information is not accessible to us or any third parties and remains solely on your device to enhance your user experience.</p>
-        
-        <h2>Children's Privacy</h2>
-        <p>The RSU1 Snow Day Calculator is not directed at children under the age of 13. Since we do not collect any personal data, there are no specific concerns regarding children's privacy.</p>
-        
-        <h2>Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. If changes are made, we will notify you by updating the effective date at the top of this policy.</p>
-        
-        <h2>Contact Us</h2>
-        <p>If you have any questions or concerns about this Privacy Policy, please contact us at <a href="mailto:snowdaycalculator@protonmail.com" class="accent">snowdaycalculator@protonmail.com</a>.</p>
-    </div>
+    <main>
+        <div class="container">
+            <h1>PRIVACY POLICY</h1>
+            <p>Effective Date: February 23, 2025</p>
+
+            <h2>Introduction</h2>
+            <p>Welcome to the RSU1 Snow Day Calculator, developed by seniors at Morse High School who created this app to help predict the likelihood of a snow day for RSU1 schools. The app is available on the web, Android, and iOS platforms. This Privacy Policy applies to all versions of the app.</p>
+            <p>This Privacy Policy explains how we handle your data when you use our app. We take your privacy seriously and are committed to protecting your personal information.</p>
+
+            <h2>Data Collection</h2>
+            <p>The RSU1 Snow Day Calculator does not collect, store, or transmit any personal data from its users. The app uses fixed geographical coordinates to fetch publicly available weather data from the National Weather Service API. All calculations to determine the probability of a snow day are performed locally on your device.</p>
+
+            <h2>Data Usage</h2>
+            <p>The weather data retrieved from the National Weather Service API is used exclusively to calculate the probability of a snow day based on factors such as temperature, expected snowfall, and previous snowfall. This data is processed locally on your device and is not stored or shared with any third parties.</p>
+
+            <h2>Third-Party Services</h2>
+            <p>The app utilizes the National Weather Service API to obtain weather forecasts. We do not share any user data with the National Weather Service or any other third-party services. The API requests include a User-Agent header to identify the app, but this does not involve any personal user information.</p>
+
+            <h2>Local Storage</h2>
+            <p>The app stores certain preference locally on your device or in your browser. This information is not accessible to us or any third parties and remains solely on your device to enhance your user experience.</p>
+
+            <h2>Children's Privacy</h2>
+            <p>The RSU1 Snow Day Calculator is not directed at children under the age of 13. Since we do not collect any personal data, there are no specific concerns regarding children's privacy.</p>
+
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. If changes are made, we will notify you by updating the effective date at the top of this policy.</p>
+
+            <h2>Contact Us</h2>
+            <p>If you have any questions or concerns about this Privacy Policy, please contact us at <a href="mailto:snowdaycalculator@protonmail.com" class="accent">snowdaycalculator@protonmail.com</a>.</p>
+        </div>
+    </main>
     <footer>
         <p>© 2025. All rights reserved.</p>
     </footer>
 </body>
+
 </html>
